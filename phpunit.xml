@@ -3,7 +3,6 @@
         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/|version|/phpunit.xsd"
         backupGlobals="true"
         backupStaticAttributes="false"
-        cacheTokens="false"
         colors="false"
         convertErrorsToExceptions="true"
         convertNoticesToExceptions="true"
@@ -20,6 +19,4 @@
         timeoutForMediumTests="10"
         timeoutForLargeTests="60"
         verbose="false">
-    <testsuites>
-    </testsuites>
 </phpunit>
