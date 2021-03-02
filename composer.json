@@ -19,7 +19,9 @@
         "phpunit/phpunit": "^9"
     },
     "autoload": {
-        "classmap": ["behavioral/php/"]
+        "classmap": [
+            "behavioral/php/"
+        ]
     },
     "config": {
         "platform": {
