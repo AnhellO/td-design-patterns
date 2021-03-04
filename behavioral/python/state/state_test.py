@@ -9,8 +9,8 @@ from state import *
     )
 ])
 def test_default_case(capfd, string, expected):
-    state = DefaultCaseState()
-    TextEditor(state).type_words(string)
+    state = DefaultCaseConcreteState()
+    TextEditorContext(state).write(string)
     
     out, _ = capfd.readouterr()
     assert out == expected
@@ -22,8 +22,8 @@ def test_default_case(capfd, string, expected):
     )
 ])
 def test_upper_case(capfd, string, expected):
-    state = UpperCaseState()
-    TextEditor(state).type_words(string)
+    state = UpperCaseConcreteState()
+    TextEditorContext(state).write(string)
     
     out, _ = capfd.readouterr()
     assert out == expected
@@ -35,8 +35,8 @@ def test_upper_case(capfd, string, expected):
     )
 ])
 def test_lower_case(capfd, string, expected):
-    state = LowerCaseState()
-    TextEditor(state).type_words(string)
+    state = LowerCaseConcreteState()
+    TextEditorContext(state).write(string)
     
     out, _ = capfd.readouterr()
     assert out == expected
@@ -48,8 +48,8 @@ def test_lower_case(capfd, string, expected):
     )
 ])
 def test_title_case(capfd, string, expected):
-    state = TitleCaseState()
-    TextEditor(state).type_words(string)
+    state = TitleCaseConcreteState()
+    TextEditorContext(state).write(string)
     
     out, _ = capfd.readouterr()
     assert out == expected
@@ -61,13 +61,13 @@ def test_title_case(capfd, string, expected):
     )
 ])
 def test_multi_case(capfd, string, expected):
-    state = UpperCaseState()
-    te = TextEditor(state)
-    te.type_words(string)
+    state = UpperCaseConcreteState()
+    editor = TextEditorContext(state)
+    editor.write(string)
 
-    new_state = LowerCaseState()
-    te.set_state(new_state)
-    te.type_words(string)
+    new_state = LowerCaseConcreteState()
+    editor.set_state(new_state)
+    editor.write(string)
     
     out, _ = capfd.readouterr()
     assert out == expected

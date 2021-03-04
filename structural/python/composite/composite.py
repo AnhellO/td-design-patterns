@@ -17,10 +17,10 @@ class GraphicalComposite(GraphicalComponent):
         self.name = args[0]
         self.children = []
 
-    def add(self, child):
+    def add(self, child: GraphicalComponent):
         self.children.append(child)
 
-    def remove(self, child):
+    def remove(self, child: GraphicalComponent):
         self.children.remove(child)
 
     def render(self):
