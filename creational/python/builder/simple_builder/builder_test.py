@@ -41,6 +41,22 @@ class BuilderTest(unittest.TestCase):
             str(pizza)
         )
     
+    def test_pizza_simple_despues_de_reset(self):
+        builder = PizzaBuilder(20)
+        builder.addCheese()
+        builder.addPepperoni()
+        builder.addSalami()
+        builder.addPimientos()
+        builder.addCebolla()
+        builder.addChampiñones()
+        builder.reset()
+        pizza = builder.build()
+        
+        self.assertIsInstance(pizza, Pizza)
+        self.assertEqual(
+            'Mi pizza es de 20" con los siguientes ingredientes: salsa de tomate y queso',
+            str(pizza)
+        )
 
 if __name__ == "__main__":
     unittest.main()

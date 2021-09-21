@@ -1,3 +1,4 @@
+# Product
 class Pizza:
     def __init__(self, inches):
         self.inches = inches
@@ -6,6 +7,7 @@ class Pizza:
     def __str__(self):
         return f'Mi pizza es de {self.inches}" con los siguientes ingredientes: {", ".join(self.ingredientes[:-1])} y {self.ingredientes[-1]}'
 
+# Concrete Builder (Builder)
 class PizzaBuilder():
     
     def __init__(self, inches):
@@ -31,3 +33,6 @@ class PizzaBuilder():
 
     def build(self):
         return self.pizza
+    
+    def reset(self):
+        self.pizza.ingredientes = ["salsa de tomate", "queso"]
