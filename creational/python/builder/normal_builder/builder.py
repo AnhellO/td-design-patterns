@@ -92,7 +92,7 @@ class CarBuilder(Builder):
 
 # ConcreteBuilder 2
 class CarManualBuilder(Builder):
-    def __init__(self, ) -> None:
+    def __init__(self) -> None:
         self.car_manual = Manual()
 
     def reset(self):
@@ -112,3 +112,42 @@ class CarManualBuilder(Builder):
 
     def get_result(self):
         return self.car_manual
+
+# Director
+class Director:
+    def __init__(self, builder: Builder) -> None:
+        self.builder = builder
+    
+    def change_builder(self, builder: Builder):
+        self.builder = builder
+    
+    # Configuración 1 - Car
+    def makeSUV(self):
+        self.builder.set_seats(8)
+        self.builder.set_engine('automático')
+        self.builder.set_trip_computer(100)
+        self.builder.set_gps(True)
+        return self.builder.get_result()
+
+    # Configuración 1 - CarManual
+    def makeSUVManual(self):
+        self.builder.set_seats('descripción asientos SUV')
+        self.builder.set_engine('descripción transmisión automática para SUV')
+        self.builder.set_trip_computer('descripción de la computadora de viaje de la SUV')
+        self.builder.set_gps('descripción del GPS-SUV')
+        return self.builder.get_result()
+
+def main():
+    car_builder = CarBuilder()
+    car_manual_builder = CarManualBuilder()
+    print(type(car_builder)) # -> CarBuilder
+    print(type(car_manual_builder)) # -> CarManualBuilder
+    print(isinstance(car_builder, CarBuilder)) # -> True
+    print(isinstance(car_manual_builder, CarManualBuilder)) # -> True
+    print(isinstance(car_builder, CarManualBuilder)) # -> False
+    print(isinstance(car_manual_builder, CarBuilder)) # -> False
+    print(isinstance(car_builder, Builder)) # -> True
+    print(isinstance(car_manual_builder, Builder)) # -> True
+
+if __name__ == "__main__":
+    main()

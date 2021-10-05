@@ -73,7 +73,24 @@ class BuilderTest(unittest.TestCase):
         self.assertEqual(None, car_manual.desc_trip_computer)
         self.assertEqual(None, car_manual.desc_gps)
         
+    def test_create_car_and_car_manual_with_director(self):
+        car_builder = CarBuilder()
+        director = Director(car_builder)
+        suv = director.makeSUV()
         
+        self.assertEqual(8, suv.seats)
+        self.assertEqual('automático', suv.engine)
+        self.assertEqual(100, suv.trip_computer)
+        self.assertEqual(True, suv.gps)
+        
+        car_manual_builder = CarManualBuilder()
+        director.change_builder(car_manual_builder)
+        suv_manual = director.makeSUVManual()
+        
+        self.assertEqual('descripción asientos SUV', suv_manual.desc_seats)
+        self.assertEqual('descripción transmisión automática para SUV', suv_manual.desc_engine)
+        self.assertEqual('descripción de la computadora de viaje de la SUV', suv_manual.desc_trip_computer)
+        self.assertEqual('descripción del GPS-SUV', suv_manual.desc_gps)
 
 if __name__ == "__main__":
     unittest.main()
