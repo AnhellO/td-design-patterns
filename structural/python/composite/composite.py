@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
 
+# Component
 class GraphicalComponent(ABC):
     @abstractmethod
     def render(self):
         pass
 
+# Leaf
 class GraphicalLeaf(GraphicalComponent):
     def __init__(self, *args):
         self.name = args[0]
@@ -12,6 +14,7 @@ class GraphicalLeaf(GraphicalComponent):
     def render(self):
         return self.name
 
+# Composite
 class GraphicalComposite(GraphicalComponent):
     def __init__(self, *args):
         self.name = args[0]
@@ -30,3 +33,22 @@ class GraphicalComposite(GraphicalComponent):
             else:
                 print(f"Component '{self.name}' has '{child.name}'")
                 child.render()
+
+def main():
+    # Creating components
+    window = GraphicalComposite('Window')
+    container = GraphicalComposite('Image')
+    image = GraphicalLeaf('image.jpg')
+    panel = GraphicalComposite('Panel')
+    label = GraphicalComposite('Label')
+    text = GraphicalLeaf('Hello World!')
+    # Assembling composite tree
+    window.add(container)
+    container.add(image)
+    window.add(panel)
+    panel.add(label)
+    label.add(text)
+    window.render()
+    
+if __name__ == "__main__":
+    main()
