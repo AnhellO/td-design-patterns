@@ -1,0 +1,33 @@
+{
+    "name": "anhello/td-design-patterns",
+    "description": "Just another design patterns repository, but this time more TDD oriented and compiling samples in multiple programming languages.",
+    "type": "project",
+    "keywords": [
+        "tdd",
+        "design-patterns",
+        "software-design"
+    ],
+    "authors": [
+        {
+            "name": "Angel Jaime",
+            "role": "lead"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "autoload": {
+        "classmap": [
+            "behavioral/php/"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.0"
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "name": "td-design-patterns",
+    "version": "0.1.0",
+    "description": "Just another design patterns repository, but this time more TDD oriented and compiling samples in multiple programming languages.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "version": "auto-changelog -p && git add CHANGELOG.md",
+        "postinstall": "npx husky install && npx husky add .husky/commit-msg \"npx commitlint --edit $1\" && npx husky add .husky/pre-commit \"npm version\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AnhellO/td-design-patterns.git"
+    },
+    "keywords": [
+        "tdd",
+        "design-patterns",
+        "software-design"
+    ],
+    "author": "AnhellO",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/AnhellO/td-design-patterns/issues"
+    },
+    "homepage": "https://github.com/AnhellO/td-design-patterns#readme",
+    "devDependencies": {
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0",
+        "auto-changelog": "^2.2.1",
+        "conventional-changelog-cli": "^2.1.1",
+        "husky": "^4.3.8"
+    },
+    "dependencies": {}
+}

@@ -1,0 +1,8 @@
+__pycache__
+.pytest_cache
+.vscode
+node_modules
+.husky
+vendor
+.phpunit*
+.DS_Store
